@@ -8,7 +8,7 @@ import SafeService from './services/safeService';
 import SafeInstructionService, { ClientSafeParams } from './services/safeInstructionService';
 
 // Configure the client to use the local cluster.
-export const anchorProvider = anchor.AnchorProvider.env();
+export const anchorProvider = anchor.AnchorProvider.local('http://127.0.0.1:8899');
 anchor.setProvider(anchorProvider);
 export const program = anchor.workspace.Snowflake as Program<Snowflake>;
 export const safeService = new SafeService(program);
@@ -142,3 +142,20 @@ const logAccounts = (accounts: any[]) => {
     console.log('key', { ...key, pubkeyStr: key.pubkey.toString() });
   });
 };
+
+export async function airdrop(
+  provider: anchor.AnchorProvider,
+  ...addresses: anchor.web3.PublicKey[]
+) {
+  await Promise.all(
+    addresses.map(async address => {
+      const signature = await provider.connection.requestAirdrop(address, 10e9);
+      const latestBlockHash = await provider.connection.getLatestBlockhash();
+      await provider.connection.confirmTransaction({
+        blockhash: latestBlockHash.blockhash,
+        lastValidBlockHeight: latestBlockHash.lastValidBlockHeight,
+        signature,
+      });
+    })
+  );
+}
