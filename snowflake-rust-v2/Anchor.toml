@@ -10,17 +10,18 @@ members = [
 ]
 
 [programs.localnet]
-snowflake = "HAD4YK6z3mFEYaFd82Ln2aVTUp3rt1ifXBHbFLfoot83"
+snowflake = "E4dX4XEtJTRxAX8DoN3qhdvEbixKD71KFx9S4fHmrAKB"
 
 [programs.mainnet]
-snowflake = "HAD4YK6z3mFEYaFd82Ln2aVTUp3rt1ifXBHbFLfoot83"
+snowflake = "E4dX4XEtJTRxAX8DoN3qhdvEbixKD71KFx9S4fHmrAKB"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
 cluster = "mainnet"
-wallet = "~/.config/solana/id.json"
+wallet = "./keypairs/admin.json"
 
 [scripts]
 test = "yarn run ts-mocha -t 1000000 tests/**/*.spec.ts"
+snowflake = "yarn run ts-mocha -t 1000000 tests/snowflake.spec.ts"

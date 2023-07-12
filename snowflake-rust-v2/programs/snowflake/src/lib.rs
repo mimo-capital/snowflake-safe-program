@@ -8,7 +8,7 @@ use anchor_lang::prelude::*;
 use instructions::*;
 use state::*;
 
-declare_id!("HAD4YK6z3mFEYaFd82Ln2aVTUp3rt1ifXBHbFLfoot83");
+declare_id!("E4dX4XEtJTRxAX8DoN3qhdvEbixKD71KFx9S4fHmrAKB");
 
 #[program]
 pub mod snowflake {
