@@ -12,11 +12,18 @@ import {
   ownerB,
   ownerC,
   ownerD,
+  airdrop,
+  delay,
 } from './helper';
+
+const delaySeconds = 3;
 
 describe('Snowflake', () => {
   it('Test Safe Program - Happy Path', async () => {
     const owners = [anchorProvider.wallet.publicKey, ownerB.publicKey, ownerC.publicKey];
+    await airdrop(anchorProvider, ownerB.publicKey, ownerC.publicKey, ownerD.publicKey);
+    await delay(delaySeconds * 1000);
+
     const { safe, ctx } = await createSampleSafe(owners, 2);
     let safeAccount = await program.account.safe.fetch(ctx.accounts.safe);
 
