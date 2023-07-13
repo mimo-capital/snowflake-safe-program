@@ -1,5 +1,5 @@
-import * as anchor from '@project-serum/anchor';
-import { BN } from '@project-serum/anchor';
+import * as anchor from '@coral-xyz/anchor';
+import { BN } from '@coral-xyz/anchor';
 import { Keypair, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { assert } from 'chai';
 import { JobBuilder } from '@snowflake-so/snowflake-sdk';

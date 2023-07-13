@@ -1,5 +1,5 @@
-import * as anchor from '@project-serum/anchor';
-import { Program, BN } from '@project-serum/anchor';
+import * as anchor from '@coral-xyz/anchor';
+import { Program, BN } from '@coral-xyz/anchor';
 import { SYSVAR_CLOCK_PUBKEY } from '@solana/web3.js';
 import { Job, JobBuilder } from '@snowflake-so/snowflake-sdk';
 import { Snowflake } from '../target/types/snowflake';

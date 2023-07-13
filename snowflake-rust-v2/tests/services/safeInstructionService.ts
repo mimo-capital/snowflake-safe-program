@@ -1,4 +1,4 @@
-import { Program, ProgramAccount } from '@project-serum/anchor';
+import { Program, ProgramAccount } from '@coral-xyz/anchor';
 import { JobBuilder } from '@snowflake-so/snowflake-sdk';
 import {
   AccountMeta,
@@ -238,7 +238,6 @@ export default class SafeInstructionService {
     return { ctx };
   }
 
-
   static async deleteFlowIx(
     program: Program,
     ownerAddress: PublicKey,
@@ -325,16 +324,17 @@ export default class SafeInstructionService {
 
       return result;
     }, []);
-    const ctx: InstructionContextType<'flow' | 'safe' | 'safeSigner' | 'caller' | 'systemProgram'> = {
-      accounts: {
-        flow: flowAddress,
-        safe: safeAddress,
-        safeSigner: safeSignerAddress,
-        caller: ownerAddress,
-        systemProgram: SystemProgram.programId,
-      },
-      remainingAccounts: remainingAccountMetas,
-    };
+    const ctx: InstructionContextType<'flow' | 'safe' | 'safeSigner' | 'caller' | 'systemProgram'> =
+      {
+        accounts: {
+          flow: flowAddress,
+          safe: safeAddress,
+          safeSigner: safeSignerAddress,
+          caller: ownerAddress,
+          systemProgram: SystemProgram.programId,
+        },
+        remainingAccounts: remainingAccountMetas,
+      };
 
     return { ctx };
   }

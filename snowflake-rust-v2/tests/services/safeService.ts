@@ -1,4 +1,4 @@
-import { Program, ProgramAccount, utils } from '@project-serum/anchor';
+import { Program, ProgramAccount, utils } from '@coral-xyz/anchor';
 import {
   GetProgramAccountsFilter,
   Keypair,
